@@ -4,6 +4,9 @@
 
 This is a Windows kernel framework in Rust that consists of [windows-kernel-sys](windows-kernel-sys), a crate that provides low-level unsafe bindings generated using [bindgen](https://github.com/rust-lang/rust-bindgen), and [windows-kernel-rs](windows-kernel-rs), a crate that provides safe abstractions in Rust on top.
 
+**Note**
+You may follow the instructions in [hello-world](hello-world\BKMs_to_compile_hello_world.md) to build and test the hello_world driver.
+
 ## Features
 
 To give you an idea of whether these crates are useful to you, here is a non-exhaustive overview of the features that are currently supported and that are more or less planned:
