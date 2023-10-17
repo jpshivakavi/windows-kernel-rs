@@ -1,5 +1,5 @@
 [env]
-VC_BUILD_DIR="C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Auxiliary\\Build\\vcvars64.bat"
+VC_BUILD_DIR="C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Professional\\VC\\Auxiliary\\Build\\vcvars64.bat"
 
 [env.development]
 TARGET_PATH = "target/debug"
@@ -23,7 +23,7 @@ cargo b %BUILD_FLAGS%
 ignore_errors = true
 script = '''
 cd %TARGET_PATH%
-rename driver.dll driver.sys
+rename hello_world.dll hello_world.sys
 '''
 
 [tasks.sign]
@@ -33,5 +33,5 @@ call "%VC_BUILD_DIR%"
 
 if not exist DriverCertificate.cer ( makecert -r -pe -ss PrivateCertStore -n CN=DriverCertificate DriverCertificate.cer ) else ( echo Certificate already exists. )
 
-signtool sign /a /v /s PrivateCertStore /n DriverCertificate /fd certHash /t http://timestamp.digicert.com %TARGET_PATH%/driver.sys
+signtool sign /a /v /s PrivateCertStore /n DriverCertificate /fd certHash /t http://timestamp.digicert.com %TARGET_PATH%/hello_world.sys
 '''

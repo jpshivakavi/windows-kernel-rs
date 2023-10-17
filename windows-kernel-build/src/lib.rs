@@ -18,11 +18,12 @@ pub enum DirectoryType {
 
 /// Retrieves the path to the Windows Kits directory. The default should be
 /// `C:\Program Files (x86)\Windows Kits\10`.
+/// `C:\ewdk\Program Files\Windows Kits\10`.
 pub fn get_windows_kits_dir() -> Result<PathBuf, Error> {
-    let hklm = RegKey::predef(HKEY_LOCAL_MACHINE);
-    let key = r"SOFTWARE\Microsoft\Windows Kits\Installed Roots";
-    let dir: String = hklm.open_subkey(key)?.get_value("KitsRoot10")?;
-
+    let _hklm = RegKey::predef(HKEY_LOCAL_MACHINE);
+    let _key = r"SOFTWARE\Microsoft\Windows Kits\Installed Roots";
+    //let dir: String = hklm.open_subkey(key)?.get_value("KitsRoot10")?;
+    let dir: String = r"C:\ewdk\Program Files\Windows Kits\10".to_string();
     Ok(dir.into())
 }
 
